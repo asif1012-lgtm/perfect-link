@@ -1,0 +1,138 @@
+client:536 WebSocket connection to 'wss://0.0.0.0:5000/?token=fCydSL7uoADz' failed: 
+setupWebSocket @ client:536Understand this error
+client:560 [vite] server connection lost. Polling for restart...
+0.0.0.0:5000/:1 
+            
+            
+           Failed to load resource: net::ERR_ADDRESS_INVALIDUnderstand this error
+chunk-373CG7ZK.js?v=8b3205b7:21549 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+0.0.0.0:5000/:1 
+            
+            
+           Failed to load resource: net::ERR_ADDRESS_INVALIDUnderstand this error
+0.0.0.0:5000/:1 
+            
+            
+           Failed to load resource: net::ERR_ADDRESS_INVALIDUnderstand this error
+0.0.0.0:5000/:1 
+            
+            
+           Failed to load resource: net::ERR_ADDRESS_INVALIDUnderstand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALID
+ping @ client:736
+waitForSuccessfulPing @ client:755Understand this error
+client:736 
+            
+            
+           GET https://0.0.0.0:5000/ net::ERR_ADDRESS_INVALI

