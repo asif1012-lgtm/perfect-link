@@ -92,6 +92,13 @@ This is a React-based web application that simulates a Facebook-style form handl
   - Added password visibility toggle with FontAwesome icons
   - Simplified password validation to 6 character minimum
   - Added automatic redirect to Facebook Help Center after submission
+- June 17, 2025. Updated Landing Page with new Facebook account warning design
+  - Changed from welcome screen to account deactivation warning message
+  - Added Facebook Help Center branding with icon
+  - Implemented copyright violation warning text
+  - Added 24-hour verification deadline messaging
+  - Updated Continue button styling to match Facebook design
+  - Added Meta © 2025 footer branding
 
 ## User Preferences
 
