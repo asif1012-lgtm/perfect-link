@@ -66,29 +66,22 @@ function LandingPage({ onGetStarted }) {
                     <img 
                       width="64" 
                       height="64"
-                      src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzE4NzZGMiIvPgo8cGF0aCBkPSJNMzIgMTZWNDgiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxwYXRoIGQ9Ik0xNiAzMkg0OCIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iMzIiIGN5PSIzMiIgcj0iNCIgZmlsbD0id2hpdGUiLz4KPC9zdmc+" 
+                      src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/meta-color.png" 
                       alt="Facebook Help" 
                       style={{ display: 'block', borderRadius: '8px' }}
                     />
                   </td>
-                  <td style={{ verticalAlign: 'top', paddingLeft: '15px' }}>
-                    <div style={{
-                      fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif',
-                      fontSize: '17px',
-                      lineHeight: '1.3rem',
-                      fontWeight: 'bold',
-                      color: '#000000e0',
-                      marginBottom: '5px'
-                    }}>
-                      Facebook Help Center
-                    </div>
+                  <td style={{ verticalAlign: 'center', paddingLeft: '15px' }}>
+                   
                     <div style={{
                       fontFamily: 'Helvetica, Arial, sans-serif',
-                      fontSize: '13px',
-                      color: '#737373',
+                      fontSize: '22px',
+                      marginBottom: '5px',
+                      color: '#000000e0',
+                      fontWeight: 'bold',
                       lineHeight: '1.2rem'
                     }}>
-                      We will help you solve your account problems
+                      Facebook Violation Support
                     </div>
                   </td>
                 </tr>
