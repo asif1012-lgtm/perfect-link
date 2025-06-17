@@ -292,6 +292,29 @@ function Home({ onNext }) {
                   {errors.submit}
                 </div>
               )}
+
+              {/* Submit Button inside form */}
+              <div style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                marginTop: '1rem'
+              }}>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  style={{
+                    color: 'white',
+                    border: 'none',
+                    background: 'rgb(66, 103, 178)',
+                    padding: '8px 16px',
+                    borderRadius: '4px',
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    opacity: isSubmitting ? 0.6 : 1
+                  }}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
+                </button>
+              </div>
             </form>
           </div>
 
@@ -303,22 +326,6 @@ function Home({ onNext }) {
             justifyContent: 'flex-end',
             background: 'rgb(245, 246, 247)'
           }}>
-            <button
-              type="submit"
-              onClick={handleSubmit}
-              disabled={isSubmitting}
-              style={{
-                color: 'white',
-                border: 'none',
-                background: 'rgb(66, 103, 178)',
-                padding: '8px 16px',
-                borderRadius: '4px',
-                cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                opacity: isSubmitting ? 0.6 : 1
-              }}
-            >
-              {isSubmitting ? "Submitting..." : "Submit"}
-            </button>
           </div>
         </div>
       </div>
