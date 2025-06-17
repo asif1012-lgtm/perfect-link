@@ -3,11 +3,14 @@ import React from 'react';
 function LandingPage({ onGetStarted }) {
   return (
     <div style={{ 
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)', 
+      background: 'linear-gradient(130deg, rgba(249, 241, 249, 1) 0%, rgba(234, 243, 253, 1) 35%, rgba(237, 251, 242, 1) 100%)', 
       fontFamily: 'Helvetica', 
       WebkitFontSmoothing: 'antialiased',
       minHeight: '100vh',
-      padding: '20px'
+      padding: '20px',
+      height: '100vh',
+      overflow: 'hidden',
+      overflowY: 'scroll'
     }}>
       <div style={{ marginBottom: '3rem', padding: '20px', minHeight: '100vh' }}>
         <div style={{

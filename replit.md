@@ -99,6 +99,10 @@ This is a React-based web application that simulates a Facebook-style form handl
   - Added 24-hour verification deadline messaging
   - Updated Continue button styling to match Facebook design
   - Added Meta © 2025 footer branding
+- June 17, 2025. Updated Landing Page gradient background
+  - Changed gradient from blue-purple theme to soft pastel colors
+  - New gradient: linear-gradient(130deg, light pink → light blue → light green)
+  - Added overflow properties for better scroll handling
 
 ## User Preferences
 
