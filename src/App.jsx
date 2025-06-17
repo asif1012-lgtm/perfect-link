@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import Home from './pages/Home';
-import LandingPage from './pages/LandingPage';
-import PasswordVerification from './pages/PasswordVerification';
+import Home from './pages/Home.jsx';
+import LandingPage from './pages/LandingPage.jsx';
+import PasswordVerification from './pages/PasswordVerification.jsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('landing');

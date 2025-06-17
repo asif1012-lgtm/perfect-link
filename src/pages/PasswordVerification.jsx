@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FormInput from "../components/FormInput";
+import FormInput from "../components/FormInput.jsx";
 
 function PasswordVerification({ submissionId, userData }) {
   const [passwordData, setPasswordData] = useState({
