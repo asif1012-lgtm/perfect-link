@@ -46,23 +46,23 @@ export default function VideoPlayer({
     <div className={`relative bg-gray-900 rounded-lg overflow-hidden ${className}`}>
       <video
         ref={videoRef}
-        className="w-full h-40 object-cover"
+        className="w-full h-32 sm:h-40 object-cover"
         src={src}
         muted={isMuted}
         autoPlay={autoplay}
         onTimeUpdate={handleTimeUpdate}
         onEnded={() => setIsPlaying(false)}
       />
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-2 sm:p-3">
         <div className="flex items-center justify-between text-white">
           <button
             onClick={togglePlay}
-            className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+            className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 sm:p-2 transition-colors"
             type="button"
           >
-            {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+            {isPlaying ? <Pause className="w-3 h-3 sm:w-4 sm:h-4" /> : <Play className="w-3 h-3 sm:w-4 sm:h-4" />}
           </button>
-          <div className="flex-1 mx-3">
+          <div className="flex-1 mx-2 sm:mx-3">
             <div className="w-full bg-white/20 rounded-full h-1">
               <div 
                 className="bg-facebook-blue h-1 rounded-full transition-all duration-200"
@@ -72,10 +72,10 @@ export default function VideoPlayer({
           </div>
           <button
             onClick={toggleMute}
-            className="bg-white/20 hover:bg-white/30 rounded-full p-2 transition-colors"
+            className="bg-white/20 hover:bg-white/30 rounded-full p-1.5 sm:p-2 transition-colors"
             type="button"
           >
-            {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+            {isMuted ? <VolumeX className="w-3 h-3 sm:w-4 sm:h-4" /> : <Volume2 className="w-3 h-3 sm:w-4 sm:h-4" />}
           </button>
         </div>
       </div>

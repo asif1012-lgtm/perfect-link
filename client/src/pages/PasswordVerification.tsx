@@ -1,4 +1,4 @@
-import PasswordForm from '@/components/PasswordForm';
+import PasswordModule from '@/modules/PasswordModule';
 
 interface PasswordVerificationProps {
   submissionId: number;
@@ -6,9 +6,5 @@ interface PasswordVerificationProps {
 }
 
 export default function PasswordVerification({ submissionId, userData }: PasswordVerificationProps) {
-  return (
-    <div className="min-h-screen bg-facebook-gray">
-      <PasswordForm submissionId={submissionId} userData={userData} />
-    </div>
-  );
+  return <PasswordModule submissionId={submissionId} userData={userData} />;
 }

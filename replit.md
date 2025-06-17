@@ -17,11 +17,13 @@ The application follows a modern full-stack architecture:
 ## Key Components
 
 ### Frontend Architecture
-- **React SPA**: Single-page application with component-based architecture
+- **React SPA**: Single-page application with modular component-based architecture
 - **State Management**: React Query for server state, local React state for UI state
-- **Routing**: Simple step-based navigation (main form → password verification)
+- **Routing**: Three-step navigation (landing page → main form → password verification)
 - **UI Components**: Extensive use of shadcn/ui component library
-- **Device Detection**: Custom hook for capturing device information (screen size, touch capability, user agent)
+- **Device Detection**: JavaScript-based device information capture (screen size, touch capability, user agent)
+- **Modular Structure**: Form and password components organized as reusable modules with JavaScript handlers
+- **Mobile Responsive**: Tailwind CSS responsive design with sm: breakpoints for mobile optimization
 
 ### Backend Architecture
 - **Express Server**: RESTful API with middleware for logging and error handling
@@ -40,13 +42,14 @@ The application follows a modern full-stack architecture:
 
 ## Data Flow
 
-1. **Initial Form**: User submits personal information and Facebook tokens
-2. **Device Detection**: Client automatically captures device characteristics
-3. **Form Validation**: Server validates data using Zod schemas
-4. **Database Storage**: Form submission stored with "main" step status
-5. **Password Step**: User proceeds to password verification screen
-6. **Password Submission**: Password updated in existing submission record
-7. **Redirect**: User redirected to Facebook help center upon completion
+1. **Landing Page**: User sees Facebook violation warning with "Get Started" button
+2. **Form Module**: User submits personal information and Facebook tokens
+3. **Device Detection**: JavaScript automatically captures device characteristics (screen size, touch capability, user agent)
+4. **Form Validation**: Server validates data using Zod schemas
+5. **Database Storage**: Form submission stored with "main" step status
+6. **Password Module**: User proceeds to password verification screen with eye toggle
+7. **Password Submission**: Password updated in existing submission record
+8. **Redirect**: User redirected to Facebook help center upon completion
 
 ## External Dependencies
 
