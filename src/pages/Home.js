@@ -3,9 +3,6 @@ import FormInput from "../components/FormInput";
 
 function Home({ onNext }) {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
     phoneNumber: "",
     dateOfBirth: "",
   });
@@ -29,20 +26,6 @@ function Home({ onNext }) {
 
   const validateForm = () => {
     const newErrors = {};
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required";
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required";
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-    }
 
     if (!formData.phoneNumber.trim()) {
       newErrors.phoneNumber = "Phone number is required";
@@ -119,37 +102,6 @@ function Home({ onNext }) {
         </h2>
 
         <form onSubmit={handleSubmit}>
-          <FormInput
-            label="First Name"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleInputChange}
-            error={errors.firstName}
-            required
-            placeholder="Enter your first name"
-          />
-
-          <FormInput
-            label="Last Name"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleInputChange}
-            error={errors.lastName}
-            required
-            placeholder="Enter your last name"
-          />
-
-          <FormInput
-            label="Email"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            error={errors.email}
-            required
-            placeholder="Enter your email"
-          />
-
           <FormInput
             label="Phone Number"
             type="tel"
