@@ -13,7 +13,11 @@ export default defineConfig({
     host: "0.0.0.0",
     allowedHosts: ["localhost", ".replit.dev", ".replit.app"],
     hmr: {
-      clientPort: 5000,
+      port: 5000,
+      host: "0.0.0.0",
+    },
+    watch: {
+      usePolling: true,
     },
   },
 });

