@@ -1,0 +1,58 @@
+/* Additional custom styles for the app */
+
+.loading-spinner {
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #1877f2;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.success-icon {
+  color: #22c55e;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.form-step {
+  transition: all 0.3s ease-in-out;
+}
+
+.form-step.entering {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.form-step.entered {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .form-container {
+    margin: 10px;
+    padding: 15px;
+  }
+  
+  .form-input {
+    padding: 10px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
