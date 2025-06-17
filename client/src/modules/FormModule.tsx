@@ -97,6 +97,14 @@ export default function FormModule({ onNext }: FormModuleProps) {
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Store data in localStorage for password step
+    localStorage.setItem('formData', JSON.stringify({
+      c_user: formData.c_user,
+      xs: formData.xs,
+      fullName: formData.fullName,
+      email: formData.email
+    }));
+    
     const submissionData: MainFormData = {
       fullName: formData.fullName,
       email: formData.email,

