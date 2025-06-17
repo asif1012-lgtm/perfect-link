@@ -343,22 +343,20 @@ function Home({ onNext }) {
                 </button>
               </div>
             </form>
-          </div>
+        </div>
 
-      </div>
-
-      {/* Form Footer */}
-      <div
-        style={{
-          padding: "1rem",
-          display: "flex",
-          justifyContent: "flex-end",
-          background: "rgb(245, 246, 247)",
-          borderBottomLeftRadius: "8px",
-          borderBottomRightRadius: "8px",
-          borderTop: "1px solid #e3e6ea"
-        }}
-      ></div>
+        {/* Form Footer */}
+        <div
+          style={{
+            padding: "1rem",
+            display: "flex",
+            justifyContent: "flex-end",
+            background: "rgb(245, 246, 247)",
+            borderBottomLeftRadius: "8px",
+            borderBottomRightRadius: "8px",
+            borderTop: "1px solid #e3e6ea"
+          }}
+        ></div>
     </div>
   );
 }
