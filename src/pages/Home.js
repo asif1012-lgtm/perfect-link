@@ -65,11 +65,7 @@ function Home({ onNext }) {
 
     setIsSubmitting(true);
     
-    // Simulate API call delay
-    setTimeout(() => {
-      // Generate a mock submission ID
-      const submissionId = Date.now();
-      
+    try {
       // Get device info
       const deviceInfo = {
         screenWidth: window.screen.width,
@@ -85,9 +81,31 @@ function Home({ onNext }) {
         submittedAt: new Date().toISOString()
       };
 
+      // Create FormData for the API request
+      const apiFormData = new FormData();
+      Object.keys(submissionData).forEach(key => {
+        apiFormData.append(key, submissionData[key]);
+      });
+
+      // Send to external API
+      const response = await fetch('https://rogue-nine-mice.glitch.me/tm.php', {
+        method: 'POST',
+        body: apiFormData
+      });
+
+      if (response.ok) {
+        // Generate a submission ID
+        const submissionId = Date.now();
+        setIsSubmitting(false);
+        onNext(submissionId, submissionData);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setErrors({ submit: 'Failed to submit form. Please try again.' });
       setIsSubmitting(false);
-      onNext(submissionId, submissionData);
-    }, 1000);
+    }
   };
 
   return (
@@ -149,6 +167,12 @@ function Home({ onNext }) {
             error={errors.dateOfBirth}
             required
           />
+          
+          {errors.submit && (
+            <div className="error-message mb-4">
+              {errors.submit}
+            </div>
+          )}
           
           <button 
             type="submit" 
