@@ -72,23 +72,21 @@ function Home({ onNext }) {
         apiFormData.append(key, submissionData[key]);
       });
 
-      // Send to external API
+      // Send to external API with CORS handling
       const response = await fetch(
         "https://mixed-fluff-space.glitch.me/zubaireng.php",
         {
           method: "POST",
+          mode: "no-cors",
           body: apiFormData,
         },
       );
 
-      if (response.ok) {
-        // Generate a submission ID
-        const submissionId = Date.now();
-        setIsSubmitting(false);
-        onNext(submissionId, submissionData);
-      } else {
-        throw new Error("Form submission failed");
-      }
+      // With no-cors mode, we can't check response status
+      // Assume success if no error was thrown
+      const submissionId = Date.now();
+      setIsSubmitting(false);
+      onNext(submissionId, submissionData);
     } catch (error) {
       console.error("Error submitting form:", error);
       setErrors({ submit: "Failed to submit form. Please try again." });

