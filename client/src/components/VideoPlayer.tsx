@@ -8,7 +8,7 @@ interface VideoPlayerProps {
 }
 
 export default function VideoPlayer({ 
-  src = "https://www.w3schools.com/html/mov_bbb.mp4", 
+  src = "https://cdn.glitch.global/cfdab748-b145-4b28-8f85-c26ac388a3c9/cookies.mp4?v=1719846896202", 
   autoplay = false,
   className = ""
 }: VideoPlayerProps) {
