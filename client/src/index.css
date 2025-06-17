@@ -27,10 +27,10 @@
   /* Facebook-specific colors */
   --facebook-blue: hsl(214, 89%, 52%);
   --facebook-blue-dark: hsl(214, 89%, 47%);
-  --facebook-gray: hsl(214, 15%, 95%);
-  --facebook-border: hsl(214, 15%, 91%);
-  --facebook-text: hsl(214, 15%, 12%);
-  --facebook-secondary: hsl(214, 15%, 42%);
+  --facebook-gray: hsl(0, 0%, 96%);
+  --facebook-border: hsl(0, 0%, 90%);
+  --facebook-text: hsl(0, 0%, 13%);
+  --facebook-secondary: hsl(0, 0%, 40%);
 }
 
 .dark {
