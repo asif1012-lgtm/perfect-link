@@ -85,8 +85,11 @@ The deployment uses a parallel workflow that starts the development server with 
 
 ## Changelog
 
-Changelog:
-- June 17, 2025. Initial setup
+- June 17, 2025: Initial setup
+- June 17, 2025: Restructured to modular architecture with separate FormModule and PasswordModule components
+- June 17, 2025: Added mobile responsive design with Tailwind CSS breakpoints
+- June 17, 2025: Implemented JavaScript form handlers and button interactions
+- June 17, 2025: Added three-step navigation flow: landing page → form → password verification
 
 ## User Preferences
 
