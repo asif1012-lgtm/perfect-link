@@ -103,6 +103,11 @@ This is a React-based web application that simulates a Facebook-style form handl
   - Changed gradient from blue-purple theme to soft pastel colors
   - New gradient: linear-gradient(130deg, light pink → light blue → light green)
   - Added overflow properties for better scroll handling
+- June 17, 2025. Improved Home.jsx modal styling
+  - Enhanced modal appearance with rounded corners and shadow
+  - Increased padding and improved spacing throughout
+  - Removed vertical scrollers for cleaner presentation
+  - Added better header and footer styling with proper borders
 
 ## User Preferences
 

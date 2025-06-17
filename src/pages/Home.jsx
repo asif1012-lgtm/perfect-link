@@ -93,44 +93,35 @@ function Home({ onNext }) {
   };
 
   return (
-    <div style={{ backgroundColor: "#fff" }}>
-      {/* Main Content */}
+    <div style={{ 
+      backgroundColor: "#fff",
+      width: "100%"
+    }}>
+      {/* Form Header */}
       <div
         style={{
-          width: "100%",
           padding: "1rem",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          background: "rgb(245, 246, 247)",
+          borderTopLeftRadius: "8px",
+          borderTopRightRadius: "8px",
         }}
       >
-        <div
+        <h5
           style={{
-            width: "100%",
-            maxWidth: "500px",
-            border: "1px solid #ddd",
+            margin: "0",
+            fontSize: "1.2rem",
+            fontWeight: "600",
+            color: "#333"
           }}
         >
-          {/* Form Header */}
-          <div
-            style={{
-              padding: "0.5rem",
-              background: "rgb(245, 246, 247)",
-            }}
-          >
-            <h5
-              style={{
-                margin: "0",
-                fontSize: "1.1rem",
-                fontWeight: "600",
-              }}
-            >
-              Request For Remove Page Violation
-            </h5>
-          </div>
+          Request For Remove Page Violation
+        </h5>
+      </div>
 
-          {/* Form Content */}
-          <div style={{ padding: "0.5rem" }}>
+      {/* Form Content */}
+      <div style={{ 
+        padding: "1.5rem"
+      }}>
             <p
               style={{
                 fontWeight: "600",
@@ -354,18 +345,20 @@ function Home({ onNext }) {
             </form>
           </div>
 
-          {/* Form Footer */}
-          <div
-            style={{
-              padding: "0.5rem",
-              marginBottom: "0.5rem",
-              display: "flex",
-              justifyContent: "flex-end",
-              background: "rgb(245, 246, 247)",
-            }}
-          ></div>
-        </div>
       </div>
+
+      {/* Form Footer */}
+      <div
+        style={{
+          padding: "1rem",
+          display: "flex",
+          justifyContent: "flex-end",
+          background: "rgb(245, 246, 247)",
+          borderBottomLeftRadius: "8px",
+          borderBottomRightRadius: "8px",
+          borderTop: "1px solid #e3e6ea"
+        }}
+      ></div>
     </div>
   );
 }
