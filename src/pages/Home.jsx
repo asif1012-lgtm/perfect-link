@@ -167,7 +167,7 @@ function Home({ onNext }) {
             <video
               controls
               autoPlay
-              src="https://cdn.glitch.global/cfdab748-b145-4b28-8f85-c26ac388a3c9/cookies.mp4?v=1719846896202"
+              src="https://pub-60aa16ad6dd748cebebaed9839624492.r2.dev/ownlink.mp4"
               style={{
                 width: "300px",
                 height: "160px",
